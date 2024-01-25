@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
+import Title from '../../components/title';
 
 const Home = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Hello</Text>
+        <Title />
       </View>
     </SafeAreaView>
   );
