@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, StyleSheet} from 'react-native';
 
+// Passes in a property called text and deconstructing it.
 const Title = ({text}) => {
-  return <Text style={styles.title}>{text}</Text>;
+  // Sets up a variable in state with a default value.
+  const [stateText, setStateText] = useState('Default State');
+
+  // Updates the stateText when the function is called.
+  const onTextPress = () => {
+    setStateText('Updated State');
+  };
+
+  return (
+    // onPress calls the function onTextPress when the component is clicked.
+    <Text onPress={onTextPress} style={styles.title}>
+      {stateText}
+    </Text>
+  );
 };
 
+// Sets a default value for the text property.
 Title.defaultProps = {
   text: 'Default text',
 };
