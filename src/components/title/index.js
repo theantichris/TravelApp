@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet} from 'react-native';
 
 // Passes in a property called text and deconstructing it.
 const Title = ({text}) => {
   // Sets up a variable in state with a default value.
   const [stateText, setStateText] = useState('Default State');
+
+  // Called anytime something changes.
+  useEffect(
+    () => {
+      // What you want to do when something changes.
+    },
+    [
+      // Define items you want to listen to.
+    ],
+  );
 
   // Updates the stateText when the function is called.
   const onTextPress = () => {
