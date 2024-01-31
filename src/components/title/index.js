@@ -13,6 +13,7 @@ const Title = ({text}) => {
     },
     [
       // Define items you want to listen to.
+      // Empty array will only do it once.
     ],
   );
 
@@ -40,4 +41,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Title;
+// React.memo only re-renders the component if the component's properties change.
+export default React.memo(Title);
