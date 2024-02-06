@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 
 // Passes in a property called text and deconstructing it.
-const Title = ({text}) => {
+const Title = ({text, style}) => {
   // Sets up a variable in state with a default value.
   // const [stateText, setStateText] = useState('Default State');
 
@@ -24,7 +24,9 @@ const Title = ({text}) => {
 
   return (
     // onPress calls the function onTextPress when the component is clicked.
-    <Text /* onPress={onTextPress} */ style={styles.title}>{text}</Text>
+    <Text /* onPress={onTextPress} */ style={[styles.title, style]}>
+      {text}
+    </Text>
   );
 };
 
@@ -35,7 +37,9 @@ const Title = ({text}) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 24,
+    fontSize: 32,
+    color: '#4681A3',
+    fontWeight: 'bold',
   },
 });
 
