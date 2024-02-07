@@ -3,6 +3,17 @@
 import React from 'react';
 import {View, SafeAreaView, StyleSheet} from 'react-native';
 import Title from '../../components/title';
+import Categories from '../../components/categories';
+
+const categories = [
+  'All',
+  'Popular',
+  'Historical',
+  'Random',
+  'Trending',
+  'Exclusive',
+  'Others',
+];
 
 const Home = () => {
   return (
@@ -11,6 +22,8 @@ const Home = () => {
         <Title text="Where do" style={{fontWeight: 'normal'}} />
         <Title text="you want to go?" />
         <Title text="Explore Attractions" style={styles.subtitle} />
+
+        <Categories categories={categories} selectedCategory="All" />
       </View>
     </SafeAreaView>
   );
@@ -24,7 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#000000',
     marginTop: 40,
-    marginBottom: 34,
+    marginBottom: 18,
   },
 });
 
