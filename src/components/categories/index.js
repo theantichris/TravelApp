@@ -1,16 +1,19 @@
 import React from 'react';
-import {FlatList, Text, StyleSheet, View} from 'react-native';
+import {FlatList, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const Categories = ({categories, selectedCategory}) => {
+const Categories = ({categories, selectedCategory, onCategoryPress}) => {
   return (
     <FlatList
       horizontal
       data={categories}
+      style={styles.categoriesContainer}
+      showsHorizontalScrollIndicator={false}
       renderItem={({item}) => {
         const selected = selectedCategory === item;
 
         return (
-          <View
+          <TouchableOpacity
+            onPress={() => onCategoryPress(item)}
             style={[
               styles.itemContainer,
               selected ? styles.selectedItemContainer : {},
@@ -19,7 +22,7 @@ const Categories = ({categories, selectedCategory}) => {
               style={[styles.item, selected ? styles.selectedCategory : {}]}>
               {item}
             </Text>
-          </View>
+          </TouchableOpacity>
         );
       }}
     />
@@ -27,6 +30,9 @@ const Categories = ({categories, selectedCategory}) => {
 };
 
 const styles = StyleSheet.create({
+  categoriesContainer: {
+    marginRight: -32,
+  },
   itemContainer: {
     marginVertical: 14,
     marginRight: 17,
