@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, SafeAreaView, StyleSheet} from 'react-native';
 import Title from '../../components/title';
 import Categories from '../../components/categories';
+import AttractionCard from '../../components/AttractionCard';
 
 const categories = [
   'All',
@@ -28,6 +29,24 @@ const Home = () => {
           selectedCategory={selectedCategory}
           onCategoryPress={setSelectedCategory}
         />
+
+        <View style={styles.row}>
+          <AttractionCard
+            title="Entertainment Park"
+            subtitle="Rome"
+            imageSrc={
+              'https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg'
+            }
+          />
+
+          <AttractionCard
+            title="Entertainment Park"
+            subtitle="Rome"
+            imageSrc={
+              'https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg'
+            }
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -45,6 +64,9 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 40,
     marginBottom: 18,
+  },
+  row: {
+    flexDirection: 'row',
   },
 });
 
