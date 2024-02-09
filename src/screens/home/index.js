@@ -34,17 +34,13 @@ const Home = () => {
           <AttractionCard
             title="Entertainment Park"
             subtitle="Rome"
-            imageSrc={
-              'https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg'
-            }
+            imageSrc="https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg"
           />
 
           <AttractionCard
             title="Entertainment Park"
             subtitle="Rome"
-            imageSrc={
-              'https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg'
-            }
+            imageSrc="https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg"
           />
         </View>
       </View>
