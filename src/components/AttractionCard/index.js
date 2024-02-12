@@ -11,7 +11,10 @@ const AttractionCard = ({imageSrc, title, subtitle}) => {
       <Text style={styles.title}>{title}</Text>
 
       <View style={styles.row}>
-        {/* <Image style={styles.icon} src={require('')} /> */}
+        <Image
+          style={styles.icon}
+          source={require('../../assets/location.png')}
+        />
         <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
     </View>
