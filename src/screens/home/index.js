@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import {View, SafeAreaView, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
 import Title from '../../components/title';
 import Categories from '../../components/categories';
 import AttractionCard from '../../components/AttractionCard';
+import jsonData from '../../data/attractions.json';
 
 const categories = [
   'All',
@@ -16,6 +17,11 @@ const categories = [
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(jsonData);
+  }, []);
 
   return (
     <SafeAreaView>
@@ -30,19 +36,19 @@ const Home = () => {
           onCategoryPress={setSelectedCategory}
         />
 
-        <View style={styles.row}>
-          <AttractionCard
-            title="Entertainment Park"
-            subtitle="Rome"
-            imageSrc="https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg"
-          />
-
-          <AttractionCard
-            title="Entertainment Park"
-            subtitle="Rome"
-            imageSrc="https://cdn.generationvoyage.fr/2020/01/Europa-park-attraction-eau-755x485.jpg"
-          />
-        </View>
+        <ScrollView contentContainerStyle={styles.row}>
+          {data?.map((item, index) => {
+            return (
+              <AttractionCard
+                style={index % 2 === 0 ? styles.firstCard : {}}
+                key={item.id}
+                title={item.name}
+                subtitle={item.city}
+                imageSrc={item.images?.length ? item.images[0] : null}
+              />
+            );
+          })}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -63,6 +69,10 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  firstCard: {
+    marginRight: 12,
   },
 });
 

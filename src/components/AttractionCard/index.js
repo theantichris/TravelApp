@@ -4,9 +4,9 @@ import {Image, StyleSheet, Text, View, Dimensions} from 'react-native';
 // Use Dimensions to get the dimensions of the device's window or screen.
 const {width} = Dimensions.get('window');
 
-const AttractionCard = ({imageSrc, title, subtitle}) => {
+const AttractionCard = ({imageSrc, title, subtitle, style}) => {
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       <Image style={styles.image} source={{uri: imageSrc}} />
       <Text style={styles.title}>{title}</Text>
 
@@ -23,8 +23,8 @@ const AttractionCard = ({imageSrc, title, subtitle}) => {
 
 const styles = StyleSheet.create({
   card: {
-    marginRight: 16,
     padding: 4,
+    marginBottom: 12,
     borderWidth: 1,
     borderColor: '#E2E2E2',
     borderRadius: 15,
