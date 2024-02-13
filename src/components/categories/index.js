@@ -6,9 +6,9 @@ const Categories = ({categories, selectedCategory, onCategoryPress}) => {
     <FlatList
       horizontal
       data={categories}
-      style={styles.categoriesContainer}
+      keyExtractor={item => String(item)}
       showsHorizontalScrollIndicator={false}
-      renderItem={({item}) => {
+      renderItem={({item, index}) => {
         const selected = selectedCategory === item;
 
         return (
@@ -17,6 +17,7 @@ const Categories = ({categories, selectedCategory, onCategoryPress}) => {
             style={[
               styles.itemContainer,
               selected ? styles.selectedItemContainer : {},
+              index === 0 ? styles.firstItem : {},
             ]}>
             <Text
               style={[styles.item, selected ? styles.selectedCategory : {}]}>
@@ -30,11 +31,8 @@ const Categories = ({categories, selectedCategory, onCategoryPress}) => {
 };
 
 const styles = StyleSheet.create({
-  categoriesContainer: {
-    marginRight: -32,
-  },
   itemContainer: {
-    marginVertical: 14,
+    marginBottom: 14,
     marginRight: 17,
   },
   selectedItemContainer: {
@@ -45,6 +43,9 @@ const styles = StyleSheet.create({
     color: 'rgba(0,0,0,0.5)',
     fontSize: 12,
     paddingVertical: 2,
+  },
+  firstItem: {
+    marginLeft: 32,
   },
   selectedCategory: {
     color: '#000000',
