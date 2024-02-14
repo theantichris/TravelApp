@@ -4,19 +4,12 @@ import Title from '../../components/title';
 import Categories from '../../components/categories';
 import AttractionCard from '../../components/AttractionCard';
 import jsonData from '../../data/attractions.json';
+import categoriesData from '../../data/categories.json';
 
-const categories = [
-  'All',
-  'Popular',
-  'Historical',
-  'Random',
-  'Trending',
-  'Exclusive',
-  'Others',
-];
+const ALL = 'All';
 
 const Home = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(ALL);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -39,7 +32,7 @@ const Home = () => {
             </View>
 
             <Categories
-              categories={categories}
+              categories={[ALL, ...categoriesData]}
               selectedCategory={selectedCategory}
               onCategoryPress={setSelectedCategory}
             />
