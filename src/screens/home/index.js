@@ -16,6 +16,18 @@ const Home = () => {
     setData(jsonData);
   }, []);
 
+  useEffect(() => {
+    if (selectedCategory === ALL) {
+      setData(jsonData);
+    } else {
+      const filteredData = jsonData?.filter(item => {
+        return item?.categories?.includes(selectedCategory);
+      });
+
+      setData(filteredData);
+    }
+  }, [selectedCategory]);
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
