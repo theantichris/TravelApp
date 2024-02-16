@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, FlatList, View} from 'react-native';
+import {SafeAreaView, StyleSheet, FlatList, View, Text} from 'react-native';
 import Title from '../../components/title';
 import Categories from '../../components/categories';
 import AttractionCard from '../../components/AttractionCard';
@@ -35,6 +35,7 @@ const Home = () => {
         keyExtractor={item => String(item?.id)}
         numColumns={2}
         style={styles.list}
+        ListEmptyComponent={<Text style={styles.emptyText}>No items found.</Text>}
         ListHeaderComponent={
           <>
             <View style={styles.titleContainer}>
@@ -92,6 +93,12 @@ const styles = StyleSheet.create({
   },
   secondCard: {
     marginRight: 32,
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 50,
+    fontSize: 12,
+    color: 'rgba(0,0,0,0.5)',
   },
 });
 
