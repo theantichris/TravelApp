@@ -35,7 +35,9 @@ const Home = () => {
         keyExtractor={item => String(item?.id)}
         numColumns={2}
         style={styles.list}
-        ListEmptyComponent={<Text style={styles.emptyText}>No items found.</Text>}
+        ListEmptyComponent={
+          <Text style={styles.emptyText}>No items found.</Text>
+        }
         ListHeaderComponent={
           <>
             <View style={styles.titleContainer}>
